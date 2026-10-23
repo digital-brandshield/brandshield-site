@@ -23,18 +23,20 @@ body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-ser
 .wrap{width:100%;max-width:80rem;margin-inline:auto;padding-inline:1.25rem}
 @media(min-width:640px){.wrap{padding-inline:2rem}}
 .eyebrow{font-size:.625rem;font-weight:600;line-height:1.2;letter-spacing:.24em;text-transform:uppercase}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.reveal.is-visible{opacity:1;transform:translateY(0)}
 .grad{background:linear-gradient(96deg,#e2e8f0,#a5f3fc 48%,#22d3ee);-webkit-background-clip:text;background-clip:text;color:transparent}
 .panel{background:linear-gradient(158deg,rgba(19,29,48,.84),rgba(10,16,28,.9));-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .35s ease,box-shadow .35s ease,background-color .35s ease}
 .panel:hover,.panel:focus-within{transform:translateY(-2px);border-color:rgba(34,211,238,.16);box-shadow:0 28px 70px -42px rgba(2,8,23,.95)}
-.grid-bg{background-image:linear-gradient(to right,rgba(148,163,184,.055) 1px,transparent 1px),linear-gradient(to bottom,rgba(148,163,184,.055) 1px,transparent 1px);background-size:68px 68px;-webkit-mask-image:linear-gradient(#000,rgba(0,0,0,.4) 58%,transparent 88%);mask-image:linear-gradient(#000,rgba(0,0,0,.4) 58%,transparent 88%)}
+.grid-bg{background-image:linear-gradient(to right,rgba(148,163,184,.055) 1px,transparent 1px),linear-gradient(to bottom,rgba(148,163,184,.055) 1px,transparent 1px);background-size:68px 68px;-webkit-mask-image:linear-gradient(#000,rgba(0,0,0,.4) 58%,transparent 88%);mask-image:linear-gradient(#000,rgba(0,0,0,.4) 58%,transparent 88%);animation:gridMove 22s linear infinite}
 .glow{background:radial-gradient(circle,rgba(34,211,238,.16),rgba(34,211,238,.05) 38%,transparent 68%)}
-.hero-glow{animation:pulseGlow 7.6s ease-in-out infinite}
+.hero-glow{animation:pulseGlow 6s ease-in-out infinite}
+.scanline{position:absolute;left:0;right:0;top:0;z-index:1;height:1px;background:linear-gradient(90deg,transparent,#22d3ee,transparent);box-shadow:0 0 14px #22d3ee;opacity:0;pointer-events:none;animation:scanline 4.5s linear infinite}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.625rem;border-radius:.75rem;padding:.875rem 1.25rem;font-size:.875rem;font-weight:600;transition:background-color .25s ease,border-color .25s ease,color .25s ease,transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s ease}
 .btn-primary{background:#22d3ee;color:#020617;box-shadow:0 0 36px -10px rgba(34,211,238,.55)}
 .btn-primary:hover{background:#67e8f9;transform:translateY(-2px);box-shadow:0 0 46px -8px rgba(34,211,238,.7)}
 .btn-ghost{border:1px solid #334155;background:rgba(255,255,255,.025);color:#e2e8f0;font-weight:500}
 .btn-ghost:hover{border-color:#475569;background:rgba(255,255,255,.05);transform:translateY(-1px)}
-.btn:focus-visible{box-shadow:0 0 0 3px rgba(34,211,238,.18)}
 .navlink,.mlink{border-radius:.5rem;color:#94a3b8;transition:.2s}
 .navlink{padding:.5rem .75rem;font-size:.8125rem;font-weight:500}
 .mlink{display:block;padding:.7rem .75rem;font-size:.875rem}
@@ -42,12 +44,15 @@ body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-ser
 .iconbox{display:flex;height:2.75rem;width:2.75rem;flex-shrink:0;align-items:center;justify-content:center;border-radius:.75rem;border:1px solid rgba(34,211,238,.18);background:rgba(34,211,238,.06);color:#67e8f9}
 .card{position:relative;border:1px solid rgba(255,255,255,.07);border-radius:1rem;background:rgba(13,18,31,.76);padding:1.25rem;transition:transform .3s cubic-bezier(.2,.7,.2,1),border-color .3s ease,background-color .3s ease,box-shadow .3s ease}
 .card:hover{transform:translateY(-4px);border-color:rgba(34,211,238,.24);background:rgba(16,24,39,.82);box-shadow:0 22px 45px -30px rgba(2,8,23,.95)}
+.card.reveal,.panel.reveal{transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .3s cubic-bezier(.2,.7,.2,1),border-color .3s ease,background-color .3s ease,box-shadow .3s ease}
+.delay-100{transition-delay:.1s}
+.delay-200{transition-delay:.2s}
+.delay-300{transition-delay:.3s}
 @media(min-width:640px){.card{padding:1.5rem}}
 .label{font-family:var(--mono);font-size:.5625rem;line-height:1.4;letter-spacing:.14em;text-transform:uppercase;color:#8b9bb0}
 .badge{flex-shrink:0;border-radius:.25rem;padding:.22rem .35rem;font-family:var(--mono);font-size:.48rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
 .badge-a{border:1px solid rgba(251,191,36,.16);background:rgba(251,191,36,.06);color:#fcd34d}
 .badge-c{border:1px solid rgba(34,211,238,.16);background:rgba(34,211,238,.06);color:#a5f3fc}
-.badge-g{border:1px solid rgba(52,211,153,.16);background:rgba(52,211,153,.06);color:#6ee7b7}
 .live{display:inline-flex;align-items:center;gap:.35rem;border:1px solid rgba(52,211,153,.2);border-radius:999px;background:rgba(52,211,153,.06);padding:.22rem .55rem;font-family:var(--mono);font-size:.48rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#6ee7b7}
 .email{display:inline-flex;align-items:center;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;border:1px solid rgba(255,255,255,.07);border-radius:.5rem;background:rgba(255,255,255,.02);padding:.35rem .55rem;font-family:var(--mono);font-size:.6rem;color:#a5f3fc;transition:.2s}
 .email:hover{border-color:rgba(103,232,249,.3);background:rgba(34,211,238,.04)}
@@ -59,9 +64,12 @@ body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-ser
 .statusdot::after{content:"";position:relative;height:100%;width:100%;border-radius:999px;background:#34d399}
 .lucide{stroke-width:1.65}
 @keyframes ping{0%{transform:scale(1);opacity:.6}70%,100%{transform:scale(2.4);opacity:0}}
-@keyframes pulseGlow{0%,100%{opacity:.65;transform:translate(-50%,0) scale(1)}50%{opacity:.85;transform:translate(-50%,-2%) scale(1.05)}}
+@keyframes pulseGlow{0%,100%{opacity:.55;transform:translate(-50%,0) scale(1)}50%{opacity:.85;transform:translate(-50%,-2%) scale(1.05)}}
+@keyframes gridMove{0%{background-position:0 0}100%{background-position:68px 68px}}
+@keyframes scanline{0%{top:0;opacity:0}8%{opacity:.9}92%{opacity:.9}100%{top:100%;opacity:0}}
 :where(a,button):focus-visible{outline:2px solid #22d3ee;outline-offset:3px}
 </style>
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
 </head>
 <body id="top">
 <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70] focus:rounded-lg focus:bg-cyan-400 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-slate-950">Skip to content</a>
@@ -109,7 +117,7 @@ body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-ser
 <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-400/25 to-transparent"></div>
 </div>
 <div class="wrap relative grid items-center gap-12 lg:grid-cols-[1.05fr_.95fr] lg:gap-10">
-<div>
+<div class="reveal">
 <p class="inline-flex items-center gap-2 rounded-full border border-cyan-300/15 bg-cyan-400/[.045] px-3 py-1.5">
 <i data-lucide="shield-check" class="h-3.5 w-3.5 text-cyan-300" aria-hidden="true"></i>
 <span class="text-[9px] font-semibold uppercase tracking-[.18em] text-cyan-100/80">Infrastructure enforcement</span>
@@ -127,9 +135,10 @@ Coordinated mitigation of phishing clusters, fraudulent mirror domains, and unau
 <a href="#compliance" class="btn btn-ghost w-full sm:w-auto"><i data-lucide="file-check" class="h-4 w-4 text-cyan-300/80" aria-hidden="true"></i>Compliance RFC 2142</a>
 </div>
 </div>
-<aside class="relative">
+<aside class="relative reveal delay-100">
 <div class="glow pointer-events-none absolute -inset-8 rounded-full opacity-70 blur-3xl" aria-hidden="true"></div>
 <div class="panel relative overflow-hidden rounded-2xl border border-white/10 p-5 shadow-2xl">
+<div class="scanline" aria-hidden="true"></div>
 <div class="flex items-center justify-between gap-4 border-b border-white/[.07] pb-3.5">
 <div class="flex items-center gap-2">
 <i data-lucide="server" class="h-4 w-4 text-slate-400" aria-hidden="true"></i>
@@ -139,12 +148,11 @@ Coordinated mitigation of phishing clusters, fraudulent mirror domains, and unau
 </div>
 <div class="mt-3 flex items-center justify-between">
 <span class="label">Open enforcement files</span>
-<span class="font-mono text-[11px] text-white">1,284</span>
+<span class="font-mono text-[11px] text-white" id="openCases">1,284</span>
 </div>
 <ul class="mt-3 space-y-3 border-t border-white/[.06] pt-3">
 <li class="flex items-center justify-between gap-3 text-[11px] text-slate-200"><span>Credential phishing cluster</span><span class="badge badge-a">Escalated</span></li>
 <li class="flex items-center justify-between gap-3 text-[11px] text-slate-200"><span>Mirror domain delegation</span><span class="badge badge-c">Held</span></li>
-<li class="flex items-center justify-between gap-3 text-[11px] text-slate-200"><span>Counterfeit storefront</span><span class="badge badge-g">Filed</span></li>
 </ul>
 <div class="mt-4 flex items-center justify-between border-t border-white/[.06] pt-3">
 <span class="label">Registry sync active</span>
@@ -156,35 +164,31 @@ Coordinated mitigation of phishing clusters, fraudulent mirror domains, and unau
 </section>
 <section id="operations" class="scroll-mt-24 border-t border-white/[.06] py-24" aria-labelledby="operations-title">
 <div class="wrap">
-<div class="max-w-2xl">
+<div class="max-w-2xl reveal">
 <p class="eyebrow text-cyan-300/80">Core operations</p>
 <h2 id="operations-title" class="mt-3 text-3xl font-semibold tracking-[-.03em] text-white sm:text-4xl">Core Enforcement Capabilities</h2>
 <p class="mt-3 text-sm leading-7 text-slate-400">Registrar and hosting work comes first, then indexes and marketplaces. Each case keeps one evidence file and response record.</p>
 </div>
 <div class="mt-8 grid gap-4 md:grid-cols-2">
-<article class="card">
+<article class="card reveal">
 <span class="iconbox"><i data-lucide="shield-alert" class="h-5 w-5" aria-hidden="true"></i></span>
 <h3 class="mt-4 text-lg font-semibold text-white">Phishing &amp; Rogue Mirror Teardown</h3>
 <p class="mt-2 text-[13px] leading-6 text-slate-400">Registrar serverHold requests, DNS delegation holds, and upstream transit null-routes. Captures and DNS history remain with the case file.</p>
-<p class="mt-4 border-t border-white/[.06] pt-3 font-mono text-[9px] uppercase tracking-[.08em] text-slate-400">serverHold / DNS delegation hold / upstream null-route</p>
 </article>
-<article class="card">
+<article class="card reveal delay-100">
 <span class="iconbox"><i data-lucide="scale" class="h-5 w-5" aria-hidden="true"></i></span>
 <h3 class="mt-4 text-lg font-semibold text-white">Trademark &amp; Copyright Enforcement</h3>
 <p class="mt-2 text-[13px] leading-6 text-slate-400">WIPO Madrid and EUIPO records are checked before notice. Packages include ownership extracts, dated captures, and the legal basis for action.</p>
-<p class="mt-4 border-t border-white/[.06] pt-3 font-mono text-[9px] uppercase tracking-[.08em] text-slate-400">WIPO Madrid / EUIPO / DMCA 512</p>
 </article>
-<article class="card">
+<article class="card reveal delay-200">
 <span class="iconbox"><i data-lucide="inbox" class="h-5 w-5" aria-hidden="true"></i></span>
 <h3 class="mt-4 text-lg font-semibold text-white">Automated Abuse Ingestion</h3>
 <p class="mt-2 text-[13px] leading-6 text-slate-400">abuse@ accepts reports over RFC 2142 mailboxes. Messages are deduplicated, routed to the responsible contact, and logged.</p>
-<p class="mt-4 border-t border-white/[.06] pt-3 font-mono text-[9px] uppercase tracking-[.08em] text-slate-400">RFC 2142 / mailbox routing / escalation log</p>
 </article>
-<article class="card">
+<article class="card reveal delay-300">
 <span class="iconbox"><i data-lucide="search-x" class="h-5 w-5" aria-hidden="true"></i></span>
 <h3 class="mt-4 text-lg font-semibold text-white">Search Engine De-indexing</h3>
 <p class="mt-2 text-[13px] leading-6 text-slate-400">Lumen DMCA notices and Safe Browsing reports are submitted for infringing URLs. Pages are checked again on the next crawl.</p>
-<p class="mt-4 border-t border-white/[.06] pt-3 font-mono text-[9px] uppercase tracking-[.08em] text-slate-400">Lumen DMCA / Safe Browsing / re-crawl</p>
 </article>
 </div>
 </div>
@@ -195,13 +199,13 @@ Coordinated mitigation of phishing clusters, fraudulent mirror domains, and unau
 </div>
 <div class="wrap relative">
 <div class="grid gap-10 lg:grid-cols-12">
-<div class="lg:col-span-5">
+<div class="lg:col-span-5 reveal">
 <p class="eyebrow text-cyan-300/80">Abuse routing</p>
 <h2 id="routing-title" class="mt-3 text-3xl font-semibold tracking-[-.03em] text-white sm:text-4xl">Institutional Verification &amp; Routing</h2>
-<p class="mt-4 text-sm leading-7 text-slate-400">Registrars, host abuse teams, and rights holders can verify a notice before acting. Mail from digital-brandshield.com carries a case ID. Signed copies are available on request.</p>
+<p class="mt-4 text-sm leading-7 text-slate-400">Registrars, hosts, and rights holders can verify notices before acting. Mail from digital-brandshield.com carries a case ID.</p>
 <p class="mt-5 border-l border-cyan-400/30 pl-3 text-[11px] leading-5 text-slate-400"><span class="font-medium text-white">PGP / Security Disclosure.</span> Our PGP key is available from <a href="mailto:security@digital-brandshield.com" class="text-slate-300 underline decoration-slate-600 underline-offset-2 hover:text-cyan-200">security@digital-brandshield.com</a>. Do not send private keys by unencrypted mail.</p>
 </div>
-<div class="lg:col-span-7">
+<div class="lg:col-span-7 reveal delay-100">
 <div class="panel overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
 <div class="flex items-center justify-between gap-4 border-b border-white/[.07] px-4 py-3.5">
 <div>
@@ -251,11 +255,10 @@ Coordinated mitigation of phishing clusters, fraudulent mirror domains, and unau
 </div>
 </li>
 </ul>
-<p class="border-t border-white/[.07] bg-white/[.015] px-4 py-3 text-[10px] leading-5 text-slate-500">Include the ASN, ticket ID, and a reachable contact.</p>
 </div>
 </div>
 </div>
-<div id="compliance" class="mt-12 scroll-mt-24 border-t border-white/[.06] pt-8">
+<div id="compliance" class="mt-12 scroll-mt-24 border-t border-white/[.06] pt-8 reveal">
 <div class="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
 <div>
 <p class="eyebrow text-cyan-300/80">Protocol compliance</p>
@@ -263,14 +266,8 @@ Coordinated mitigation of phishing clusters, fraudulent mirror domains, and unau
 </div>
 <p class="max-w-2xl text-[11px] leading-5 text-slate-400">Mailbox handling follows RFC 2142. Trademark records come from WIPO Madrid and EUIPO registrations. DMCA notices are prepared under 17 U.S.C. 512.</p>
 </div>
-<div class="mt-4 flex flex-wrap gap-x-6 gap-y-2 border-y border-white/[.06] py-3 font-mono text-[9px] uppercase tracking-[.1em] text-slate-400">
-<span><b class="font-semibold text-slate-300">RFC 2142</b> mailbox routing</span>
-<span><b class="font-semibold text-slate-300">WIPO Madrid System</b> trademark records</span>
-<span><b class="font-semibold text-slate-300">EUIPO</b> registered marks</span>
-<span><b class="font-semibold text-slate-300">DMCA 512</b> notice handling</span>
 </div>
-</div>
-<div id="verification" class="panel mt-4 scroll-mt-24 rounded-xl border border-white/[.08] p-4 sm:flex sm:items-center sm:justify-between sm:gap-6">
+<div id="verification" class="panel reveal delay-200 mt-4 scroll-mt-24 rounded-xl border border-white/[.08] p-4 sm:flex sm:items-center sm:justify-between sm:gap-6">
 <div>
 <p class="eyebrow text-cyan-300/80">Verification</p>
 <h3 class="mt-1.5 text-[15px] font-semibold text-white">Verify before action</h3>
@@ -288,7 +285,6 @@ Coordinated mitigation of phishing clusters, fraudulent mirror domains, and unau
 <img src="logo.png" alt="Digital Brandshield Logo" class="h-12 w-12 object-contain" />
 <span class="text-[14px] font-semibold text-white">Digital Brandshield</span>
 </a>
-<p class="mt-2 max-w-sm text-[11px] leading-5 text-slate-400">Infrastructure takedown and brand protection for rights holders, registrars, and hosting abuse teams.</p>
 </div>
 <div class="flex flex-col gap-1.5 font-mono text-[10px] sm:text-right">
 <a href="mailto:abuse@digital-brandshield.com" class="text-slate-400 hover:text-white">abuse@digital-brandshield.com</a>
@@ -304,90 +300,101 @@ Coordinated mitigation of phishing clusters, fraudulent mirror domains, and unau
 <p>© 2026 Digital Brandshield. All rights reserved.</p>
 <p>digital-brandshield.com / Abuse desk monitored 24/7</p>
 </div>
+<p class="mt-2 text-[10px] leading-5 text-slate-600">Digital Brandshield is not a law firm and does not provide legal advice.</p>
 </div>
 </div>
 </footer>
 <div id="live" class="sr-only" role="status" aria-live="polite"></div>
 <script src="https://unpkg.com/lucide@latest"></script>
 <script>
-    (() => {
-      const menuButton = document.getElementById('menuButton');
-      const mobileMenu = document.getElementById('mobileMenu');
-      const menuOpen = document.getElementById('menuOpen');
-      const menuClose = document.getElementById('menuClose');
-
-      const setMenu = (open) => {
-        if (!menuButton || !mobileMenu) return;
-        mobileMenu.classList.toggle('hidden', !open);
-        menuButton.setAttribute('aria-expanded', String(open));
-        menuButton.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-        if (menuOpen) menuOpen.classList.toggle('hidden', open);
-        if (menuClose) menuClose.classList.toggle('hidden', !open);
-      };
-
-      if (menuButton && mobileMenu) {
-        menuButton.addEventListener('click', () => {
-          setMenu(menuButton.getAttribute('aria-expanded') !== 'true');
-        });
-        mobileMenu.querySelectorAll('a').forEach((link) => {
-          link.addEventListener('click', () => setMenu(false));
-        });
-        document.addEventListener('keydown', (event) => {
-          if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {
-            setMenu(false);
-            menuButton.focus();
-          }
-        });
-        window.matchMedia('(min-width: 1024px)').addEventListener('change', (event) => {
-          if (event.matches) setMenu(false);
-        });
-      }
-
-      const copyText = async (text) => {
-        try {
-          await navigator.clipboard.writeText(text);
-          return true;
-        } catch (error) {
-          const field = document.createElement('textarea');
-          field.value = text;
-          field.setAttribute('readonly', '');
-          field.style.position = 'fixed';
-          field.style.opacity = '0';
-          document.body.appendChild(field);
-          field.select();
-          const copied = document.execCommand('copy');
-          field.remove();
-          return copied;
-        }
-      };
-
-      document.querySelectorAll('[data-copy]').forEach((element) => {
-        element.addEventListener('click', async () => {
-          const address = element.getAttribute('data-copy');
-          const copied = await copyText(address);
-          const label = element.textContent;
-          const status = document.getElementById('live');
-          element.textContent = copied ? 'Copied' : 'Failed';
-          if (status) status.textContent = copied ? `Copied ${address}` : `Could not copy ${address}`;
-          window.setTimeout(() => {
-            element.textContent = label;
-          }, 1600);
-        });
-      });
-
-      const updateClock = () => {
-        const now = new Date();
-        const hours = String(now.getUTCHours()).padStart(2, '0');
-        const minutes = String(now.getUTCMinutes()).padStart(2, '0');
-        document.querySelectorAll('[data-utc]').forEach((node) => {
-          node.textContent = `${hours}:${minutes} UTC`;
-        });
-      };
-      updateClock();
-      window.setInterval(updateClock, 30000);
-
-      if (window.lucide) window.lucide.createIcons();
-    })();
+(() => {
+const $ = (selector) => document.querySelector(selector);
+const $$ = (selector) => document.querySelectorAll(selector);
+const menuButton = $('#menuButton');
+const mobileMenu = $('#mobileMenu');
+const menuOpen = $('#menuOpen');
+const menuClose = $('#menuClose');
+const setMenu = (open) => {
+if (!menuButton || !mobileMenu) return;
+mobileMenu.classList.toggle('hidden', !open);
+menuButton.setAttribute('aria-expanded', String(open));
+menuButton.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+if (menuOpen) menuOpen.classList.toggle('hidden', open);
+if (menuClose) menuClose.classList.toggle('hidden', !open);
+};
+menuButton?.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
+mobileMenu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenu(false)));
+document.addEventListener('keydown', (event) => {
+if (event.key === 'Escape' && menuButton?.getAttribute('aria-expanded') === 'true') {
+setMenu(false);
+menuButton.focus();
+}
+});
+window.matchMedia('(min-width: 1024px)').addEventListener('change', (event) => {
+if (event.matches) setMenu(false);
+});
+const copyText = async (text) => {
+try {
+await navigator.clipboard.writeText(text);
+return true;
+} catch (error) {
+const field = document.createElement('textarea');
+field.value = text;
+field.setAttribute('readonly', '');
+field.style.cssText = 'position:fixed;opacity:0';
+document.body.appendChild(field);
+field.select();
+const copied = document.execCommand('copy');
+field.remove();
+return copied;
+}
+};
+$$('[data-copy]').forEach((button) => button.addEventListener('click', async () => {
+const address = button.getAttribute('data-copy');
+const copied = await copyText(address);
+const label = button.textContent;
+const status = $('#live');
+button.textContent = copied ? 'Copied' : 'Failed';
+if (status) status.textContent = copied ? `Copied ${address}` : `Could not copy ${address}`;
+window.setTimeout(() => {
+button.textContent = label;
+}, 1600);
+}));
+const updateClock = () => {
+const now = new Date();
+const clock = `${String(now.getUTCHours()).padStart(2, '0')}:${String(now.getUTCMinutes()).padStart(2, '0')} UTC`;
+$$('[data-utc]').forEach((node) => {
+node.textContent = clock;
+});
+};
+updateClock();
+window.setInterval(updateClock, 30000);
+const counter = $('#openCases');
+if (counter) {
+let count = 1284;
+const tick = () => {
+count += Math.random() < .5 ? 1 : 2;
+counter.textContent = count.toLocaleString('en-US');
+window.setTimeout(tick, 12000 + Math.random() * 3000);
+};
+window.setTimeout(tick, 12000 + Math.random() * 3000);
+}
+const reveal = $$('.reveal');
+if ('IntersectionObserver' in window) {
+const observer = new IntersectionObserver((entries) => {
+entries.forEach((entry) => {
+if (entry.isIntersecting) {
+entry.target.classList.add('is-visible');
+observer.unobserve(entry.target);
+}
+});
+}, { threshold: 0.08, rootMargin: '0px 0px -8% 0px' });
+reveal.forEach((element) => observer.observe(element));
+} else {
+reveal.forEach((element) => element.classList.add('is-visible'));
+}
+if (window.lucide) window.lucide.createIcons();
+})();
 </script>
 </body>
 </html>
